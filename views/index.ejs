@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATN Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/397ab0845f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <a href="/" class="nav-brand text-dark">ATN Shop</a>
+                </div>
+            </div>
+            <div>
+                <a href="/logout/">Logout</a>
+            </div>
+        </nav>
+    </header>
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="/add" class="border-shadow">
+                    <span class="text-gradient">Add new toys</i></span>
+                </a>
+            </div>
+            <form action="/" method="POST">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Description</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (var i = 0; i< toys.length;i++){%>
+                        <tr>
+                            <td><%=i+1%></td>
+                            <td><%=toys[i].name%></td>
+                            <td><%=toys[i].price%></td>
+                            <td><%=toys[i].quantity%></td>
+                            <td><%=toys[i].description%></td>
+                            <td>
+                                <a href="/update?id=<%=toys[i]._id%>"><i class="fa-solid fa-pen-to-square" style="padding-right: 20%; ;"></i></a>
+                                <a class="delete" data-id=<%=toys[i]._id%> href=""><i class="fa-solid fa-delete-left"></i></a>
+                            </td>
+                        </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>
