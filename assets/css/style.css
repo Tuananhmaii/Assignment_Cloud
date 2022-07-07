@@ -66,7 +66,7 @@ a {
 }
 
 #header nav{
-    background-color: #8c8793;
+    background-color: #68636e;
     padding: 1em 0;
     width: 100%;
 }
@@ -78,7 +78,8 @@ a {
 
 #site-main .container .box-nav > a{
     font-size: 1em;
-    padding: .5em 1em;
+    padding: 15px;
+    margin-left: 87%;
 }
 
 #site-main .container form{
@@ -225,4 +226,24 @@ table{
 #add_user .form-group .btn:hover{
     background-color: var(--dark);
     color: var(--border);
+}
+
+#introduction{
+    text-align: center;
+}
+
+#add{
+    padding-left: 90%;
+}
+
+#logout{
+    padding: 15px;
+    margin-left: 90%;
+    color: var(--dark);
+    font-size: 1.3em;
+}
+
+#add:hover{
+    background-color: #68636e;
+    color: var(--dark);
 }
