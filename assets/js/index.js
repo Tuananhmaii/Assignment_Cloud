@@ -12,7 +12,7 @@ $("#update_toy").submit(function(event){
     })
     console.log(data); 
     var request = {
-        "url":`http://localhost:3000/api/toys/${data.id}`,
+        "url":`https://r0pindalowkey.herokuapp.com/api/toys/${data.id}`,
         "method":"PUT",
         "data":data
     }
@@ -26,7 +26,7 @@ if(window.location.pathname =="/index"){
     $ondelete.click(function(){
         var id = $(this).attr("data-id")
         var request = {
-            "url":`http://localhost:3000/api/toys/${id}`,
+            "url":`https://r0pindalowkey.herokuapp.com/api/toys/${id}`,
             "method":"DELETE",
         }
 
