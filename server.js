@@ -9,7 +9,14 @@ const { Router } = require('express');
 const route = express.Router();
 const axios = require('axios')
 const { auth, requiresAuth } = require('express-openid-connect');
+const http = require('http')
+const host = 'localhost';
+const PORT = process.env.PORT || 3000;
 
+
+app.listen(PORT, host, function() {
+    console.log("Server started.......");
+  });
 
 // log requests 
 app.use(morgan("tiny"));
