@@ -67,7 +67,7 @@ const config = {
     authRequired: false,
     auth0Logout: true,
     secret: 'a long, randomly-generated string stored in env',
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://r0pindalowkey.herokuapp.com',
     clientID: 'LKuZ7y0A1MmOokeFKq2ce3XBwmAm58Px',
     issuerBaseURL: 'https://dev-vc3sf5hx.us.auth0.com'
   };
