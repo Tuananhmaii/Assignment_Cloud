@@ -11,7 +11,6 @@ const axios = require('axios')
 const { auth, requiresAuth } = require('express-openid-connect');
 const http = require('http')
 const host = 'localhost';
-
 app.listen(process.env.PORT || 3000, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
   });
@@ -35,7 +34,7 @@ app.use('/js', express.static(path.resolve(__dirname,"assets/js")))
 
 // Make request to api/toys
 app.get('/index',(req,res)=>{
-    axios.get('http://localhost:3000/api/toys')
+    axios.get('https://r0pindalowkey.herokuapp.com/api/toys')
     .then(function(response){
         res.render('index',
         {
@@ -53,7 +52,7 @@ app.get('/add',(req,res)=>{
 
 
 app.get('/update',(req,res)=>{
-    axios.get('http://localhost:3000/api/toys',{params:{id:req.query.id}})
+    axios.get('https://r0pindalowkey.herokuapp.com/api/toys',{params:{id:req.query.id}})
     .then(function(userdata){
         res.render("update",{toys:userdata.data})
     })
