@@ -9,11 +9,12 @@ const { Router } = require('express');
 const route = express.Router();
 const axios = require('axios')
 const { auth, requiresAuth } = require('express-openid-connect');
-
+const http = require('http')
+const host = 'localhost';
 app.listen(process.env.PORT || 3000, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
   });
-  
+
 // log requests 
 app.use(morgan("tiny"));
 
@@ -35,19 +36,10 @@ app.use('/js', express.static(path.resolve(__dirname,"assets/js")))
 app.get('/index',(req,res)=>{
     axios.get('https://r0pindalowkey.herokuapp.com/api/toys')
     .then(function(response){
-        if(user.nickname === "boss"){
-            res.render('index',
-            {
-                toys : response.data
-            })
-        }
-        if(user.nickname === "shop"){
-            res.render('index',
-            {
-                toys : response.data.find(description => description === "shop")
-            })
-        }
-       
+        res.render('index',
+        {
+            toys:response.data
+        })
     })
     .catch(err=>{
         res.send(err)
