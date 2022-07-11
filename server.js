@@ -35,10 +35,19 @@ app.use('/js', express.static(path.resolve(__dirname,"assets/js")))
 app.get('/index',(req,res)=>{
     axios.get('https://r0pindalowkey.herokuapp.com/api/toys')
     .then(function(response){
-        res.render('index',
-        {
-            toys:response.data
-        })
+        if(user.nickname === "boss"){
+            res.render('index',
+            {
+                toys : response.data
+            })
+        }
+        if(user.nickname === "shop"){
+            res.render('index',
+            {
+                toys : response.data.find(description => description === "shop")
+            })
+        }
+       
     })
     .catch(err=>{
         res.send(err)
@@ -86,5 +95,4 @@ app.get('/', requiresAuth(), (req, res) => {
         isAuthenticated: req.oidc.isAuthenticated(),
         user :req.oidc.user
     })
-    console.log(user);
 })
